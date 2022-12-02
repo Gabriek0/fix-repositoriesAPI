@@ -8,6 +8,16 @@ app.use(express.json());
 
 const repositories = [];
 
+function blockChangeLikes(request, response, next) {
+  const { likes } = request.body;
+
+  if (likes) {
+    return response.json({ likes: 0 });
+  }
+
+  return next();
+}
+
 app.get("/repositories", (request, response) => {
   return response.json(repositories);
 });
@@ -28,11 +38,11 @@ app.post("/repositories", (request, response) => {
   return response.status(201).json(repository);
 });
 
-app.put("/repositories/:id", (request, response) => {
+app.put("/repositories/:id", blockChangeLikes, (request, response) => {
   const { id } = request.params;
   const updatedRepository = request.body;
 
-  repositoryIndex = repositories.findindex(
+  const repositoryIndex = repositories.findIndex(
     (repository) => repository.id === id
   );
 
