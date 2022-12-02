@@ -38,7 +38,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 git clone https://github.com/Gabriek0/fix-repositoriesAPI.git
 
 # Mude para o diretório do projeto
-cd https://github.com/Gabriek0/fix-repositoriesAPI-challenge.git
+cd https://github.com/Gabriek0/fix-repositoriesAPI.git
 
 # Instale as dependências
 yarn
